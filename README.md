@@ -50,14 +50,15 @@ these, all we do is store the gradient they just received in their tensor’s .g
 
 
 ## Code Structure
-.
-├── build                   # Compiled files (alternatively `dist`)
-├── docs                    # Documentation files (alternatively `doc`)
-├── src                     # Source files (alternatively `lib` or `app`)
-├── test                    # Automated tests (alternatively `spec` or `tests`)
-├── tools                   # Tools and utilities
-├── LICENSE
-└── README.md
+### A typical top-level directory layout
+    .
+    ├── build                   # Compiled files (alternatively `dist`)
+    ├── docs                    # Documentation files (alternatively `doc`)
+    ├── src                     # Source files (alternatively `lib` or `app`)
+    ├── test                    # Automated tests (alternatively `spec` or `tests`)
+    ├── tools                   # Tools and utilities
+    ├── LICENSE
+    └── README.md
 
 mytorch........................................................................MyTorch library
 nn....................................................................Neural Net-related files
