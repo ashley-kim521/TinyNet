@@ -50,20 +50,28 @@ these, all we do is store the gradient they just received in their tensor’s .g
 
 
 ## Code Structure
+    TinyNet                     # TinyNet library
+    ├── nn                      # Neural Net-related files         
+    │   ├── activations.py         
+    │   ├── batchnorm.py     
+    │   ├── functional.py 
+    │   ├── linear.py     
+    │   ├── loss.py  
+    │   ├── module.py  
+    │   └── sequential.py    
+    ├── optim                   # Optimizer-related files
+    │   ├── optimizer.py  
+    │   └── sgd.py
+    ├── autograd engine.py      # Autograd main code 
+    └── tensor.py               # Tensor object
+    
     TinyNet
-    ├── build                   # Compiled files (alternatively `dist`)
-    ├── docs                    # Documentation files (alternatively `doc`)
-    ├── src                     # Source files (alternatively `lib` or `app`)
-    ├── test                    # Automated tests (alternatively `spec` or `tests`)
-    ├── tools                   # Tools and utilities
+    ├── mnist.py                  
+    ├── docs                   
+    ├── src                   
+    ├── test                    
+    ├── tools                   
     ├── LICENSE
     └── README.md
 
 
-    TinyNet
-    ├── ...
-    ├── test                    # Test files (alternatively `spec` or `tests`)
-    │   ├── benchmarks          # Load and stress tests
-    │   ├── integration         # End-to-end, integration tests (alternatively `e2e`)
-    │   └── unit                # Unit tests
-    └── ...
