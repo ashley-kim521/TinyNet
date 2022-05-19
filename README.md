@@ -28,6 +28,7 @@ Remember: we’re doing all of this to calculate gradients. Specifically, the pa
 
 ## How Backward Pass Works
 <img width="539" alt="Screen Shot 2022-05-18 at 11 30 34 PM" src="https://user-images.githubusercontent.com/75964687/169199189-241e6bf6-bbdf-4d3d-ab6e-e49e46d672c3.png">
+
 In the backward pass, starting at the final node (e), autograd traverses the graph in reverse by performing a recursive **Depth-First Search** (DFS).
 
 Why a DFS? Because it turns out that every computable function can be decomposed into a Directed Acyclic Graph (DAG). A reverse-order DFS on a DAG guarantees at least one valid path for traversing the entire graph in linear time (this is because a reverse-order DFS on a DAG is essentially a Topological Sort). Doing this in reverse is just much more efficient than doing it forwards.
