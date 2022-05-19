@@ -3,7 +3,7 @@ Development of my own version of the popular deep learning library PyTorch. A ke
 
 With autograd, you only need to implement derivatives for simple operations and functions. With those simple operations, you can run most common DL components. The rest of the code is typical Object-Oriented Programing (OOP).
 
-# How Forward Pass Works
+## How Forward Pass Works
 During forward propagation, autograd automatically constructs a computational graph. It does this in the background, while the function is being run.
 
 <img width="539" alt="Screen Shot 2022-05-18 at 11 30 34 PM" src="https://user-images.githubusercontent.com/75964687/169198440-7e54793b-fab0-4fc7-aa98-ca6c0a1cde47.png">
@@ -15,17 +15,18 @@ The computational graph tracks how elementary operations modify data throughout 
 4. Store the node on the output tensor
 5. Return the output tensor
 
-But what information is stored on the node, and how does it link the node to the comp graph? The node stores two things: the operation that created the node’s data and a record of the node’s “parents”. Recall that each tensor stores its own node. So when making the record of the current node’s parents, we
+**But what information is stored on the node, and how does it link the node to the comp graph?** 
+The node stores two things: the operation that created the node’s data and a record of the node’s “parents”. Recall that each tensor stores its own node. So when making the record of the current node’s parents, we
 can usually just grab the nodes from the input tensors. But also recall that we only create nodes when an operation is called. Op:Mult was the very first operation, so its input tensors a and b didn’t even have nodes initialized for them yet.
 
 To solve this issue, Function.apply() also checks if any parents need to have their nodes created for them. If so, it creates the appropriate type of node for that parent (we’ll introduce node types during backward), and then adds that node to its list of parents. Effectively, this connects the current node to its parent nodes in the graph.
 
-To recap, whenever we have an operation on a tensor in the comp graph, we create a node, get the output of the operation, link the node to the graph, and store the node on the output tensor.
+**To recap, whenever we have an operation on a tensor in the comp graph, we create a node, get the output of the operation, link the node to the graph, and store the node on the output tensor.
 
-# How Backward Pass Works
+## How Backward Pass Works
 
 
-The structure of the code is the following:
+## Code Structure
 mytorch........................................................................MyTorch library
 nn....................................................................Neural Net-related files
 activations.py
