@@ -58,20 +58,19 @@ these, all we do is store the gradient they just received in their tensor’s .g
     │   ├── linear.py     
     │   ├── loss.py  
     │   ├── module.py  
-    │   └── sequential.py    
+    │   ├── conv.py             # Convolutional layer object
+    │   ├── sequential.py     
+    │   ├── gru.py              # GRU objects
+    │   ├── rnn.py              # RNN objects
+    │   └── util.py             # For RNN (pack sequence etc..)
     ├── optim                   # Optimizer-related files
     │   ├── optimizer.py  
     │   └── sgd.py
     ├── autograd engine.py      # Autograd main code 
     └── tensor.py               # Tensor object
     
-    TinyNet
-    ├── mnist.py                  
-    ├── docs                   
-    ├── src                   
-    ├── test                    
-    ├── tools                   
-    ├── LICENSE
+    Extra
+    ├── mnist.py                # Running MLP on MNIST              
+    ├── build_CNN.py            # Building a CNN model
+    ├── mlp_scan.py             # Converting Scanning MLPs to CNNs                    
     └── README.md
-
-
