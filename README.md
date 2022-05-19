@@ -27,6 +27,14 @@ To solve this issue, Function.apply() also checks if any parents need to have th
 Remember: we’re doing all of this to calculate gradients. Specifically, the partial gradients of the loss w.r.t. each gradient-enabled tensor (any tensor with requires grad==True). Think of the graph as a trail of breadcrumbs that keeps track of where we’ve been. It’s used to retrace our steps back through the graph during backprop. This is where ”backpropagation” gets its name: both autograd/backprop traverse graphs backwards while calculating gradients.
 
 ## How Backward Pass Works
+<img width="539" alt="Screen Shot 2022-05-18 at 11 30 34 PM" src="https://user-images.githubusercontent.com/75964687/169199189-241e6bf6-bbdf-4d3d-ab6e-e49e46d672c3.png">
+In the backward pass, starting at the final node (e), autograd traverses the graph in reverse by performing a recursive Depth-First Search **(DFS)**.
+Why a DFS? Because it turns out that every computable function can be decomposed into a Directed Acyclic Graph (DAG). A reverse-order DFS on a DAG guarantees at least one valid path for traversing the entire graph in linear time (this is because a reverse-order DFS on a DAG is essentially a Topological Sort). Doing this in reverse is just much more efficient than doing it forwards.
+
+At each recursive call, Autograd calculates one gradient for each input. Each gradient is then passed onto its respective parent, but only if that parent is “gradient-enabled” (requires grad==True). If the parent isn’t, the parent does not get its own gradient/recursive call. Note: constants like the 3 node are not gradient-enabled by default. Eventually, there will be a gradient-enabled node that has no more gradient-enabled parents. For nodes like
+these, all we do is store the gradient they just received in their tensor’s .grad.
+
+<img width="851" alt="Screen Shot 2022-05-18 at 11 40 17 PM" src="https://user-images.githubusercontent.com/75964687/169199461-5e092a18-9818-48b7-b5ae-68100eff6421.png">
 
 
 ## Code Structure
