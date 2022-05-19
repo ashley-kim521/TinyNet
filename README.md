@@ -42,6 +42,11 @@ these, all we do is store the gradient they just received in their tensor’s .g
 ## Let's verify it with real Torch!
 <img width="579" alt="Screen Shot 2022-05-18 at 11 44 34 PM" src="https://user-images.githubusercontent.com/75964687/169199897-74f5b933-b640-425c-913b-dbd57fc7e46f.png">
 
+**Equivalent symbolic math for each of the two gradients**
+<img width="523" alt="Screen Shot 2022-05-18 at 11 44 43 PM" src="https://user-images.githubusercontent.com/75964687/169199963-b8d415f8-cf5e-4319-9f19-fb1fe8222190.png">
+
+<img width="584" alt="Screen Shot 2022-05-18 at 11 44 47 PM" src="https://user-images.githubusercontent.com/75964687/169199976-f7c4950e-206c-49d0-ba84-3d3912e8634b.png">
+
 
 ## Code Structure
 mytorch........................................................................MyTorch library
