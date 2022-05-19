@@ -50,8 +50,7 @@ these, all we do is store the gradient they just received in their tensor’s .g
 
 
 ## Code Structure
-### A typical top-level directory layout
-    .
+    TinyNet
     ├── build                   # Compiled files (alternatively `dist`)
     ├── docs                    # Documentation files (alternatively `doc`)
     ├── src                     # Source files (alternatively `lib` or `app`)
