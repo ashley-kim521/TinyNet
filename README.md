@@ -21,7 +21,10 @@ can usually just grab the nodes from the input tensors. But also recall that we 
 
 To solve this issue, Function.apply() also checks if any parents need to have their nodes created for them. If so, it creates the appropriate type of node for that parent (we’ll introduce node types during backward), and then adds that node to its list of parents. Effectively, this connects the current node to its parent nodes in the graph.
 
-**To recap, whenever we have an operation on a tensor in the comp graph, we create a node, get the output of the operation, link the node to the graph, and store the node on the output tensor.
+**To recap, whenever we have an operation on a tensor in the comp graph, we create a node, get the output of the operation, link the node to the graph, and store the node on the output tensor.**
+
+**But why are we making this graph?**
+Remember: we’re doing all of this to calculate gradients. Specifically, the partial gradients of the loss w.r.t. each gradient-enabled tensor (any tensor with requires grad==True). Think of the graph as a trail of breadcrumbs that keeps track of where we’ve been. It’s used to retrace our steps back through the graph during backprop. This is where ”backpropagation” gets its name: both autograd/backprop traverse graphs backwards while calculating gradients.
 
 ## How Backward Pass Works
 
