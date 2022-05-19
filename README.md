@@ -6,6 +6,7 @@ With autograd, you only need to implement derivatives for simple operations and 
 
 # How Forward Pass Works
 During forward propagation, autograd automatically constructs a computational graph. It does this in the background, while the function is being run.
+
 <img width="539" alt="Screen Shot 2022-05-18 at 11 30 34 PM" src="https://user-images.githubusercontent.com/75964687/169198440-7e54793b-fab0-4fc7-aa98-ca6c0a1cde47.png">
 
 The computational graph tracks how elementary operations modify data throughout the function. Starting from the left, you can see how the input variables a and b are first multiplied together,
