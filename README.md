@@ -39,6 +39,10 @@ these, all we do is store the gradient they just received in their tensor’s .g
 <img width="851" alt="Screen Shot 2022-05-18 at 11 40 17 PM" src="https://user-images.githubusercontent.com/75964687/169199461-5e092a18-9818-48b7-b5ae-68100eff6421.png">
 
 
+## Let's verify it with real Torch!
+<img width="579" alt="Screen Shot 2022-05-18 at 11 44 34 PM" src="https://user-images.githubusercontent.com/75964687/169199897-74f5b933-b640-425c-913b-dbd57fc7e46f.png">
+
+
 ## Code Structure
 mytorch........................................................................MyTorch library
 nn....................................................................Neural Net-related files
